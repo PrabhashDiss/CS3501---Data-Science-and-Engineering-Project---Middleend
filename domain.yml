@@ -14,6 +14,7 @@ intents:
   - account_balance
   - account_transactions
   - account_number
+  - logout
 
 responses:
   utter_greet:
@@ -96,3 +97,4 @@ actions:
   - get_account_transactions
   - get_response
   - welcome_user
+  - reset_all_slots
