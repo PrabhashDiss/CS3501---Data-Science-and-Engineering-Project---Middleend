@@ -11,3 +11,40 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Activate balance form
+  steps:
+  - intent: account_balance
+  - action: account_balance_form
+  - active_loop: account_balance_form
+
+- rule: Submit balance form
+  condition:
+  - active_loop: account_balance_form
+  steps:
+  - action: account_balance_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: get_account_balance
+
+- rule: Activate transaction form
+  steps:
+  - intent: account_transactions
+  - action: account_transaction_form
+  - active_loop: account_transaction_form
+
+- rule: Submit transaction form
+  condition:
+  - active_loop: account_transaction_form
+  steps:
+  - action: account_transaction_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: get_account_transactions
+
+- rule: Handle Low NLU Confidence with Llama 2
+  steps:
+  - intent: nlu_fallback
+  - action: get_response
