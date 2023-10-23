@@ -61,3 +61,8 @@ stories:
     - requested_slot: account_number
   - active_loop: null
   - action: get_account_transactions
+
+- story: logout
+  steps:
+  - intent: logout
+  - action: reset_all_slots
