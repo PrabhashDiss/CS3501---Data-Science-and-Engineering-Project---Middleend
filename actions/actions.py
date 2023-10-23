@@ -178,3 +178,19 @@ def fetch_account_transactions(username, account_number):
         return transaction_details
     else:
         return []
+
+from rasa_sdk.events import AllSlotsReset
+
+class ActionResetAllSlots(Action):
+    def name(self):
+        return "reset_all_slots"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message("You've been logged out.")
+        return [AllSlotsReset()]
