@@ -89,3 +89,59 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: username
+  examples: |
+    - My username is [john_doe](username).
+    - The username is [jane_smith](username).
+    - Here's my username - [user123](username).
+    - You can find my username as [johnd](username).
+    - [user234](username)
+
+- intent: password
+  examples: |
+    - My password is [secure123](password).
+    - The password is [p@ssw0rd](password).
+    - Here's my password - [pa$$123](password).
+    - You can find my password as [SecretPass](password).
+    - [test](password)
+
+- intent: welcome
+  examples: |
+    - Welcome
+
+- intent: account_balance
+  examples: |
+    - How can I check my account balance?
+    - What's the process to get my account balance?
+    - Can you provide information about checking my balance?
+    - I want to know my current account balance.
+    - How do I inquire about my account balance?
+    - How can I see how much money is in my account?
+    - What's my available balance?
+    - Can you tell me my account balance?
+    - What is my current account balance?
+    - I'd like to know the balance in my account.
+    - balance
+
+- intent: account_transactions
+  examples: |
+    - Can you provide details about my recent transactions?
+    - How can I see my transaction history?
+    - Tell me about my latest transactions.
+    - What are the recent transactions on my account?
+    - I want to know my transaction record.
+    - Can you show me the transactions on my account?
+    - How do I check my transaction history?
+    - What's the process to get transaction details?
+    - I'd like to see my recent transactions.
+    - Can you give me information about my transactions?
+    - transactions
+
+- intent: account_number
+  examples: |
+    - My account number is [1234567890](account_number).
+    - The account number is [9876543210](account_number).
+    - Here's my account number - [4567890123](account_number).
+    - You can find my account number as [5678901234](account_number).
+    - [1082310654](account_number)
