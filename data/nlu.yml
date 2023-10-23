@@ -145,3 +145,7 @@ nlu:
     - Here's my account number - [4567890123](account_number).
     - You can find my account number as [5678901234](account_number).
     - [1082310654](account_number)
+
+- intent: logout
+  examples: |
+    - logout
