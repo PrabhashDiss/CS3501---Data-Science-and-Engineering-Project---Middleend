@@ -1,6 +1,6 @@
 version: '3.4'
 services:
-  rasa-en:
+  rasa:
     image: prabhashdissanayake/rasa:latest
     working_dir: /app
     build: "./"
@@ -10,7 +10,7 @@ services:
     - ./data:/app/data    
     command: "run --enable-api --cors \"*\" --port 8443 --endpoints endpoints.yml --debug"
     ports:
-    - 8443:8443
+    - 5005:5005
     depends_on:
     - action-server
     networks:
@@ -22,7 +22,7 @@ services:
     volumes:
     - ./actions:/app/actions
     ports:
-    - 5056:5056
+    - 5055:5055
     command: "run actions --port 5056"
     networks:
     - all
