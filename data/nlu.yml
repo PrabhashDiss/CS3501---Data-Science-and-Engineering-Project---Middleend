@@ -146,6 +146,26 @@ nlu:
     - You can find my account number as [5678901234](account_number).
     - [1082310654](account_number)
 
+- intent: loan_application
+  examples: |
+    - I'd like to apply for a loan.
+    - Can I get a loan?
+    - How do I apply for a loan?
+    - I'm interested in a loan.
+    - What are the loan options?
+    - Tell me about your loan application process.
+    - How can I get a loan?
+    - I need a loan.
+    - Loan application.
+
+- intent: loan_type
+  examples: |
+    - I am applying for a [personal loan](loan_type).
+    - Please consider me for an [auto loan](loan_type).
+    - My preferred loan type is [home loan](loan_type).
+    - I want to apply for a [business loan](loan_type).
+    - What I need is [student loan](loan_type).
+
 - intent: logout
   examples: |
     - logout
