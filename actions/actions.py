@@ -123,6 +123,40 @@ class GetAccountTransactions(Action):
 
         return []
 
+class SubitLoanApplication(Action):
+    def name(self) -> Text:
+        return "submit_loan_application"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        username = tracker.get_slot("username")
+        loan_type = tracker.get_slot("loan_type")
+
+        # You should replace this URL with the actual endpoint of your backend
+        backend_url = f"https://backend-5glg.onrender.com/{username}/apply_loan"
+
+        # Create a data payload to send to your backend
+        data = {
+            "loan_type": loan_type
+        }
+
+        # Send a POST request to your backend
+        response = requests.post(backend_url, json=data)
+
+        if response.status_code == 200:
+            # Assuming success
+            dispatcher.utter_message("Thank you for your loan application. It has been submitted.")
+        else:
+            # Handle errors
+            dispatcher.utter_message("Loan application submission failed. Please try again later.")
+
+        return []
+
 class GetResponseAction(Action):
     def name(self) -> Text:
         return "get_response"
