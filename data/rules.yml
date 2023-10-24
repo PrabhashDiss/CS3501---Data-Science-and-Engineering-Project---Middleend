@@ -44,6 +44,22 @@ rules:
     - requested_slot: null
   - action: get_account_transactions
 
+- rule: Activate loan application form
+  steps:
+  - intent: loan_application
+  - action: loan_application_form
+  - active_loop: loan_application_form
+
+- rule: Submit loan application form
+  condition:
+  - active_loop: loan_application_form
+  steps:
+  - action: loan_application_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_loan_application
+
 - rule: Handle Low NLU Confidence with Llama 2
   steps:
   - intent: nlu_fallback
