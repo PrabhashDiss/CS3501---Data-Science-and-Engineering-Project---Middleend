@@ -62,6 +62,18 @@ stories:
   - active_loop: null
   - action: get_account_transactions
 
+- story: loan application form
+  steps:
+  - intent: loan_application
+  - action: loan_application_form
+  - active_loop: loan_application_form
+  - slot_was_set:
+    - requested_slot: username
+  - slot_was_set:
+    - requested_slot: loan_type
+  - active_loop: null
+  - action: submit_loan_application
+
 - story: logout
   steps:
   - intent: logout
