@@ -14,6 +14,8 @@ intents:
   - account_balance
   - account_transactions
   - account_number
+  - loan_application
+  - loan_type
   - logout
 
 responses:
@@ -45,6 +47,9 @@ responses:
   utter_ask_account_number:
   - text: "Please provide your account number for which you want to check the balance."
 
+  utter_ask_loan_type:
+  - text: "Please specify the type of the loan (e.g., personal, home, auto, business)."
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
@@ -58,6 +63,7 @@ slots:
       conditions:
       - active_loop: account_balance_form
       - active_loop: account_transaction_form
+      - active_loop: loan_application_form
   password:
     type: text
     mappings:
@@ -74,6 +80,13 @@ slots:
       conditions:
       - active_loop: account_balance_form
       - active_loop: account_transaction_form
+  loan_type:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: loan_type
+      conditions:
+      - active_loop: loan_application_form
 
 forms:
   account_balance_form:
@@ -86,15 +99,21 @@ forms:
         - username
         - password
         - account_number
+  loan_application_form:
+    required_slots:
+        - username
+        - loan_type
 
 entities:
   - username
   - password
   - account_number
+  - loan_type
 
 actions:
   - get_account_balance
   - get_account_transactions
+  - submit_loan_application
   - get_response
   - welcome_user
   - reset_all_slots
